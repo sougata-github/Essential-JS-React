@@ -11,7 +11,7 @@ function getBook(id) {
 /*Destructuring : Unpacking values from an array or
 an object and assigning them to distinct variables.*/
 
-const book = getBook(1);
+const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -96,3 +96,30 @@ console.log(0 && "yes");
 //using '||' logical OR operator:
 console.log(0 || "hello");
 console.log(1 || "hello");
+
+console.log(true && false);
+console.log(true || false);
+
+//Nullish Coalescing operator
+
+console.log(undefined ?? true);
+console.log(null ?? true);
+
+console.log(false ?? true);
+
+/* && : returns the second value if the first value is true.
+ || :  returns the second value if the first value is false.
+ ?? : returns the second value only when first value is null or undefined. */
+
+//Optional chaining
+
+function getTotalreviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  return goodreads + librarything;
+}
+
+console.log(getTotalreviewCount(book));
+
+/*book.reviews.librarything?.reviewsCount : it will only compute the
+reviewsCount if the librarything property for that particular object exists.*/
